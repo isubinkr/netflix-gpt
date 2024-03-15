@@ -1,5 +1,27 @@
 # NETFLIX GPT
 
+## Description
+
+The Netflix GPT project aims to replicate the user-friendly interface of Netflix while integrating modern features such as AI-driven movie recommendations. Leveraging the TMDB API for movie data, users can explore a diverse collection of movies and receive personalized recommendations based on their preferences.
+
+## Features
+
+- User authentication and authorization with Firebase
+- Netflix-inspired user interface
+- TMDB API integration for movie data
+- GPT search feature powered by OpenAI's API
+- Responsive design for seamless user experience across devices
+
+## Technologies Used
+
+- React
+- Redux
+- Firebase
+- OpenAI API
+- TMDB API
+- Tailwind CSS
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
