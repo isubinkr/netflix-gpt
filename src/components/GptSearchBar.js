@@ -1,12 +1,14 @@
 import { useRef } from "react";
 import openai from "../utils/openai";
 import { API_OPTIONS } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addGptMovieResult } from "../utils/gptSlice";
+import lang from "../utils/languageConstants";
 
 const GptSearchBar = () => {
   const searchText = useRef(null);
   const dispatch = useDispatch();
+  const langKey = useSelector((store) => store.config.lang);
 
   // Search movie in TMDB
   const searchMovieTmdb = async (movie) => {
@@ -57,13 +59,13 @@ const GptSearchBar = () => {
           ref={searchText}
           type="text"
           className="p-4 m-4 col-span-9 rounded-lg bg-black bg-opacity-80 border border-white text-white"
-          placeholder="What would you like to watch today?"
+          placeholder={lang[langKey].gptSearchPlaceholder}
         />
         <button
           className="py-2 m-4 col-span-3 bg-red-700 text-white md:text-xl rounded-lg"
           onClick={handleGptSearchClick}
         >
-          Search
+          {lang[langKey].search}
         </button>
       </form>
     </div>
