@@ -1,5 +1,6 @@
 import { useRef } from "react";
-import openai from "../utils/openai";
+// import openai from "../utils/openai";
+import groq from "../utils/openai";
 import { API_OPTIONS } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addGptMovieResult } from "../utils/gptSlice";
@@ -28,10 +29,20 @@ const GptSearchBar = () => {
       "Act as a Movie Recommendation and suggest some movies for the query: " +
       searchText.current.value +
       ". Only give me names of 5 movies, comma separated like the example result given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya";
-    const gptResults = await openai.chat.completions.create({
-      messages: [{ role: "user", content: gptQuery }],
-      model: "gpt-3.5-turbo",
+
+    const gptResults = await groq.chat.completions.create({
+      messages: [
+        {
+          role: "user",
+          content: gptQuery,
+        },
+      ],
+      model: "llama-3.3-70b-versatile",
     });
+    // const gptResults = await openai.chat.completions.create({
+    //   messages: [{ role: "user", content: gptQuery }],
+    //   model: "gpt-3.5-turbo",
+    // });
 
     if (!gptResults.choices) {
       // console.log("Not Found");

@@ -1,9 +1,19 @@
-import OpenAI from "openai";
-import { OPENAI_KEY } from "./constants";
+import Groq from "groq-sdk";
+import { GROQ_API_KEY } from "./constants";
 
-const openai = new OpenAI({
-  apiKey: OPENAI_KEY,
+const groq = new Groq({
+  apiKey: GROQ_API_KEY,
   dangerouslyAllowBrowser: true,
 });
 
-export default openai;
+export default groq;
+
+// import OpenAI from "openai";
+// import { OPENAI_KEY } from "./constants";
+
+// const openai = new OpenAI({
+//   apiKey: OPENAI_KEY,
+//   dangerouslyAllowBrowser: true,
+// });
+
+// export default openai;
